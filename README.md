@@ -69,7 +69,37 @@ Ce constat est essentiel du point de vue métier : une faible erreur moyenne glo
 
 ## Reproduire l'analyse
 
-Voir les instructions de lancement ci-dessous et le [descriptif des données](data/raw/README.md).
+### Installation
+
+Un environnement Python avec Jupyter est nécessaire :
+
+```bash
+python -m pip install numpy pandas scipy scikit-learn xgboost lightgbm matplotlib tqdm joblib notebook
+```
+
+### Organisation conseillée du dépôt
+
+```text
+.
+├── README.md
+├── INGV_143_Notebook_Projet.ipynb
+├── docs/
+│   └── Compte_rendu_INGV_Version_Narrative.pdf
+└── data/                     # Données locales, non incluses dans le dépôt
+    ├── train.csv
+    └── train/
+        └── <segment_id>.csv
+```
+
+Les fichiers des segments peuvent aussi se trouver dans `train/train/` : le notebook sait détecter cette variante.
+
+### Exécution
+
+1. Placer les données étiquetées (`train.csv` et fichiers des segments) dans un dossier local.
+2. Ouvrir `INGV_143_Notebook_Projet.ipynb` et **adapter `DATA_DIR` dans la section 1.2** au chemin réel des données.
+3. Exécuter les cellules dans l'ordre. Les résultats et graphiques sont enregistrés dans `outputs_INGV_143/` ; un cache évite de recalculer toutes les caractéristiques à chaque exécution.
+
+Le notebook génère notamment `model_comparison.csv`, `holdout_metrics.csv`, `holdout_predictions.csv`, `predictions_holdout.png`, `residus_holdout.png`, `importance_features.png` et `modele_final_INGV_143.joblib`.
 
 ## Limites et pistes d'amélioration
 
@@ -81,43 +111,4 @@ Des prolongements pertinents seraient une validation **par épisodes indépendan
 
 ## Rapport du projet
 
-Le compte rendu détaillé présente le **contexte métier**, les principes théoriques des caractéristiques et des modèles, les résultats expérimentaux et une **discussion critique des limites** : [reports/Compte_rendu_INGV.pdf](reports/Compte_rendu_INGV.pdf).
-
-## Organisation du dépôt
-
-```text
-.
-├── README.md
-├── .gitignore
-├── requirements.txt
-├── notebooks/     # Analyses exécutables
-├── reports/       # Rapport PDF existant
-└── data/
-    └── raw/       # Données locales non versionnées
-```
-
-### Livrables
-
-- [INGV_143_Notebook_Projet.ipynb](notebooks/INGV_143_Notebook_Projet.ipynb)
-- [Compte_rendu_INGV.pdf](reports/Compte_rendu_INGV.pdf)
-
-## Exécution locale
-
-Les données sources ne sont pas incluses. Voir [data/raw/README.md](data/raw/README.md) pour les fichiers attendus et la provenance disponible.
-
-Depuis la racine du dépôt :
-
-```bash
-python -m venv .venv
-# Linux / macOS
-source .venv/bin/activate
-# Windows PowerShell : .venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python -m notebook
-```
-
-Ouvrir le notebook dans `notebooks/`, sélectionner le noyau de cet environnement puis exécuter les cellules dans l'ordre. Les chemins fonctionnent depuis la racine du dépôt et depuis `notebooks/`. Les données sont lues dans `data/raw/` par défaut ; la variable d'environnement `PROJECT_DATA_DIR` permet de choisir un autre dossier (chemin absolu recommandé).
-
-Les dépendances reflètent les imports du notebook. Le dépôt initial ne fournit aucun environnement verrouillé ; la reproduction numérique exacte des résultats historiques n'est donc pas garantie.
-
-Les résultats, graphiques, modèles et caches sont écrits dans `outputs/` (ignoré par Git). `INGV_OUTPUT_DIR` permet de changer cette destination. L’extraction et les recherches d’hyperparamètres peuvent être longues.
+Le compte rendu détaillé présente le **contexte métier**, les principes théoriques des caractéristiques et des modèles, les résultats expérimentaux et une **discussion critique des limites** : `docs/Compte_rendu_INGV_Version_Narrative.pdf` (à placer dans le dépôt).
