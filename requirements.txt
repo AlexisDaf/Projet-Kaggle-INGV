@@ -1,0 +1,11 @@
+# Dépendances directes observées dans le notebook ; versions non verrouillées.
+numpy
+pandas
+scipy
+scikit-learn
+xgboost
+lightgbm
+matplotlib
+tqdm
+joblib
+notebook
