@@ -1,6 +1,6 @@
 # INGV — Estimer le temps avant une éruption volcanique à partir de signaux sismiques
 
-**Projet personnel de Data Science** · Traitement du signal · Feature engineering · Régression · XGBoost / LightGBM
+**Projet universitaire de Data Science, prolongé à titre personnel** · Traitement du signal · Feature engineering · Régression · XGBoost / LightGBM
 
 > Un volcan ne dispose pas d'un compte à rebours. Ses signaux sismiques contiennent-ils néanmoins assez d'informations pour estimer le temps restant avant une éruption ?
 
@@ -83,8 +83,7 @@ python -m pip install numpy pandas scipy scikit-learn xgboost lightgbm matplotli
 .
 ├── README.md
 ├── INGV_143_Notebook_Projet.ipynb
-├── docs/
-│   └── Compte_rendu_INGV_Version_Narrative.pdf
+├── Compte_rendu_INGV.pdf
 └── data/                     # Données locales, non incluses dans le dépôt
     ├── train.csv
     └── train/
@@ -111,4 +110,4 @@ Des prolongements pertinents seraient une validation **par épisodes indépendan
 
 ## Rapport du projet
 
-Le compte rendu détaillé présente le **contexte métier**, les principes théoriques des caractéristiques et des modèles, les résultats expérimentaux et une **discussion critique des limites** : `docs/Compte_rendu_INGV_Version_Narrative.pdf` (à placer dans le dépôt).
+Le compte rendu détaillé présente le **contexte métier**, les principes théoriques des caractéristiques et des modèles, les résultats expérimentaux et une **discussion critique des limites** : [`Compte_rendu_INGV.pdf`](Compte_rendu_INGV.pdf).
