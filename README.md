@@ -95,7 +95,7 @@ Les fichiers des segments peuvent aussi se trouver dans `train/train/` : le note
 ### Exécution
 
 1. Placer les données étiquetées (`train.csv` et fichiers des segments) dans un dossier local.
-2. Ouvrir `INGV_143_Notebook_Projet.ipynb` et **adapter `DATA_DIR` dans la section 1.2** au chemin réel des données.
+2. Placer les données dans `data/` à la racine du dépôt, ou indiquer leur emplacement avec la variable d'environnement `INGV_DATA_DIR`, puis ouvrir `INGV_143_Notebook_Projet.ipynb`.
 3. Exécuter les cellules dans l'ordre. Les résultats et graphiques sont enregistrés dans `outputs_INGV_143/` ; un cache évite de recalculer toutes les caractéristiques à chaque exécution.
 
 Le notebook génère notamment `model_comparison.csv`, `holdout_metrics.csv`, `holdout_predictions.csv`, `predictions_holdout.png`, `residus_holdout.png`, `importance_features.png` et `modele_final_INGV_143.joblib`.
